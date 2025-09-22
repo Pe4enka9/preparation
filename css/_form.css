@@ -1,0 +1,57 @@
+form {
+    width: 25%;
+
+    margin: 0 auto;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    background-color: var(--formColor);
+
+    -webkit-border-radius: var(--borderRadius);
+    -moz-border-radius: var(--borderRadius);
+    border-radius: var(--borderRadius);
+}
+
+form h1 {
+    text-align: center;
+}
+
+.field {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+input, textarea {
+    width: 100%;
+
+    padding: .4em .7em;
+
+    background-color: var(--backgroundColor);
+
+    outline: none;
+    border: .2rem solid var(--borderColor);
+    -webkit-border-radius: var(--borderRadius);
+    -moz-border-radius: var(--borderRadius);
+    border-radius: var(--borderRadius);
+
+    transition: border-color .3s ease;
+}
+
+textarea {
+    height: 4rem;
+    min-height: 4rem;
+    max-height: 30rem;
+
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--borderFocusColor);
+}

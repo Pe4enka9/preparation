@@ -1,0 +1,39 @@
+.btn {
+    width: fit-content;
+    height: fit-content;
+
+    padding: .5em .8em;
+
+    display: block;
+
+    background-color: var(--buttonColor);
+
+    outline: none;
+    border: none;
+    -webkit-border-radius: var(--borderRadius);
+    -moz-border-radius: var(--borderRadius);
+    border-radius: var(--borderRadius);
+
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color .3s ease, transform .3s ease;
+}
+
+.btn:hover {
+    background-color: var(--buttonHoverColor);
+}
+
+.btn:active {
+    transform: scale(.95);
+}
+
+.btn.delete {
+    background-color: var(--buttonDeleteColor);
+}
+
+.btn.delete:hover {
+    background-color: var(--buttonDeleteHoverColor);
+}

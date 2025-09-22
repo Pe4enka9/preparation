@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import "_variables.css";
+@import "_form.css";
+@import "_btn.css";
+@import "_notes.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    color: var(--textColor);
+
+    font: 10px "Noto Sans", sans-serif;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
+
+main {
+    width: 80%;
+
+    margin: 5rem auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+p, label, input, textarea, a, time {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}

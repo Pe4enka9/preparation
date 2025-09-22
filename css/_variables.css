@@ -1,0 +1,14 @@
+:root {
+    --backgroundColor: #222;
+    --textColor: #e1e1e1;
+    --formColor: #305d73;
+    --borderColor: #888888;
+    --borderFocusColor: #6b29a1;
+    --buttonColor: #6b29a1;
+    --buttonHoverColor: #54217e;
+    --buttonDeleteColor: #c32e2e;
+    --buttonDeleteHoverColor: #912323;
+    --noteColor: #305d73;
+    --noteTitleColor: #6b29a1;
+    --borderRadius: .8rem;
+}
