@@ -18,7 +18,7 @@ composer require slim/php-view
 composer require php-di/slim-bridge
 composer require j4mie/idiorm
 ```
-6. В composer.json добавить секцию автозагрузки:\
+6. В composer.json добавить секцию автозагрузки:
 ```
 "autoload": {
     "psr-4": {
