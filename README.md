@@ -2,8 +2,8 @@
 
 1. Развернуть docker lamp образ
 2. Поднять контейнеры
-3. Добавить .htaccess для направления всех запросов в index.php\
-```
+3. Добавить .htaccess для направления всех запросов в index.php
+```apache
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -19,7 +19,7 @@ composer require php-di/slim-bridge
 composer require j4mie/idiorm
 ```
 6. В composer.json добавить секцию автозагрузки:
-```
+```json
 "autoload": {
     "psr-4": {
         "Src\\": "src/"
@@ -53,5 +53,42 @@ $app->get('/', [HomeController::class, 'index']);
 
 $app->run();
 ```
+## Middleware
+1. Создать папку Middleware в src
+2. Создать AuthMiddleware:
+```php
+<?php
 
-smb://10.10.0.25
+namespace Src\Middleware;
+
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+
+class AuthMiddleware
+{
+    public function __construct(
+        protected ResponseFactoryInterface $responseFactory
+    )
+    {
+    }
+
+    public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler)
+    {
+        if (!isset($_SESSION['user_id'])) {
+            $response = $this->responseFactory->createResponse();
+
+            return $response->withStatus(302)->withHeader('Location', '/login');
+        }
+
+        return $handler->handle($request);
+    }
+}
+```
+3. В index.php добавить:
+```php
+$app->group('/', function () use ($app) {
+    $app->get('/', [HomeController::class, 'index']); // Пример
+    // Остальные маршруты, для которых нужна авторизация
+})->add(new AuthMiddleware($container->get(ResponseFactory::class)));
+```
